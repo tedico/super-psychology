@@ -2,13 +2,22 @@
 
 ## What & why
 
-Super Psychology is Ted's psychology Instagram channel: research-backed
-short-form videos (paper → 30s vertical video). This repo is the channel's
-own video engine — **cloned from the KontentMaschine worker on 2026-07-05**
-per the engines-never-shared rule (each product owns its engine; no runtime
-coupling to KontentMaschine remains). Research comes from
+**Why this exists:** Ted runs a psychology Instagram channel (Super
+Psychology) that needs a steady supply of research-backed short-form videos
+— and per the engines-never-shared rule, no channel may borrow another
+project's production engine at runtime.
+
+**What it solves:** turns one psychology paper into one 30-second vertical
+video (script → voiceover → images → motion → captions → music bed) without
+Ted hand-producing anything. It is the channel's **own** engine — cloned
+from the KontentMaschine worker on 2026-07-05, then free to diverge; zero
+runtime coupling to KontentMaschine remains. Research comes from
 [Alexandria](https://github.com/tedico/alexandria), the shared paper shelf,
-via a copied adapter.
+via a copied one-file adapter — this repo consumes the shelf, it never
+maintains its own research collection.
+
+**Where it fits:** Alexandria (research) → this repo (production) → the
+Super Psychology IG channel (distribution).
 
 ## Constraints
 
@@ -66,6 +75,10 @@ Veo (motion), local music bed
   protection active). For Alexandria reads add `NOTION_API_KEY` +
   `ALEXANDRIA_PAPERS_DB_ID`.
 - `data/` — job artifacts and rendered output (gitignored)
+- `assets/music/` — **gitignored**: drop royalty-free music beds here
+  locally; audio files are never redistributed via this public repo (most
+  royalty-free licenses permit use in videos, not redistribution of the
+  track). The series config's `music.path` points at a file in here.
 
 ## Troubleshooting
 

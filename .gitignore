@@ -15,3 +15,6 @@ data/
 
 # OS
 .DS_Store
+
+# Music beds — royalty-free files stay local, never redistributed via git
+assets/music/
